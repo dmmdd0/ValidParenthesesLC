@@ -6,7 +6,7 @@ import (
 
 func main() {
 	string := "()[]{}"
-	string = "([{}])"
+	string = "([{(}])"
 	fmt.Println(isValid(string))
 
 }
@@ -20,19 +20,19 @@ func isValid(s string) bool {
 		case 41:
 			l := len(str)
 			if str[l-1] == 40 {
-				str = append(str[:l])
+				str = append(str[:l-1])
 			}
 		case 93:
 			l := len(str)
 			if str[l-1] == 91 {
-				str = append(str[:l])
+				str = append(str[:l-1])
 			}
 		case 125:
 			l := len(str)
 			if str[l-1] == 123 {
-				str = append(str[:l])
+				str = append(str[:l-1])
 			}
 		}
 	}
-	return true
+	return len(str) == 0
 }
